@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
 :root {
- 
+ --background-color: #1E1E1E;
+ --primary-color:#EC8C4C;
+ --secondary-color:#DBDBDB;
 }
 
 * {
@@ -18,8 +20,8 @@ body {
 }
 
 body {
-  color: whitesmoke;
-  background:#1e1e1e;
+  color: var(--secondary-color);
+  background:var(--background-color);
   font-family:'Noto Sans', sans-serif;
 }
 

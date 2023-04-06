@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/firebase/auth/signup.js"  ],
   "exclude": [
     "node_modules"
   ]
