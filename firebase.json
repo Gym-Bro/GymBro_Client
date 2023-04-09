@@ -1,0 +1,19 @@
+{
+    "emulators": {
+      "auth": {
+        "host": "localhost",
+        "port": "4501"
+      },
+      "firestore": {
+        "host": "localhost",
+        "port": "8080"
+      },
+      "functions": {
+        "host": "localhost",
+        "port": "5001"
+      },
+      "ui": {
+        "enabled": true
+      }
+    }
+  }

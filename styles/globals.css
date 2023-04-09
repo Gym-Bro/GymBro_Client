@@ -2,6 +2,7 @@
 
 :root {
  --background-color: #1E1E1E;
+ --background-color-opasity: #1e1e1ecd;
  --primary-color:#EC8C4C;
  --secondary-color:#DBDBDB;
 }
@@ -29,7 +30,40 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.container{
+  display: flex;
+  width: 90vh;  
+  justify-content: center;
+}
+.modal{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 
+.open{
+  display: flex;
+
+}
+.btn{
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: .5rem 1.5rem;
+  border-radius: .5rem;
+  font-weight: bold;
+  border: none;
+}
+.btn:hover{
+  cursor: pointer;
+  box-shadow: .75rem .75rem 1.75rem var(--background-color-opasity);
+}
 
 @media (prefers-color-scheme: dark) {
   html {

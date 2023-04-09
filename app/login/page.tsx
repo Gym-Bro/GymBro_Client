@@ -1,45 +1,99 @@
-'use client'
+"use client";
+
 import React from "react";
 import { signIn, signOut } from "../firebase/auth/signIn";
+import Logo from "../../public/favicon.ico";
+import Image from "next/image";
+import css from "./login.module.css"
+import Link from "next/link";
+import { Modal } from "../components/Modal";
+import {AiFillGoogleCircle, AiFillTwitterCircle} from 'react-icons/ai'
+import {BsFacebook} from 'react-icons/bs'
 
 function Page() {
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
-    
+  const [input, setInput] = React.useState({
+    email: "",
+    password: "",
+  });
 
-    const handleForm = async (event:Event) => {
-        event.preventDefault()
+  const handleForm = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
 
-        const { result, error } = await signIn(email, password);
-        console.log(email, password)
+    const { result, error } = await signIn(input.email, input.password);
+    console.log(input);
 
-        if (error) {
-            return console.log(error)
-        }
-
-        // else successful
-        console.log(result)        
+    if (error) {
+      return console.log(error);
     }
 
-    
-    return (
-    <div >
-        <div >
-            <h1>Sign up</h1>
-            <form onSubmit={handleForm} className="form">
-                <label htmlFor="email">
-                    <p>Email</p>
-                    <input onChange={(e) => setEmail(e.target.value)} required type="email" name="email" id="email" placeholder="example@mail.com" />
-                </label>
-                <label htmlFor="password">
-                    <p>Password</p>
-                    <input onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" />
-                </label>
-                <button type="submit">Sign up</button>
-                <button onClick={signOut}>cerrar secion</button>
-            </form>
+    setInput({
+      email: "",
+      password: "",
+    });
+  };
+
+  const handleInputChange = ({
+    target: { name, value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setInput({ ...input, [name]: value });
+  };
+
+  return (
+    <Modal>
+    <div className="container">
+        <div className={css.primaryContainer}>
+        <Image alt="Gym-Bro" src={Logo} className={css.img}/>
+      <div className={css.container}>
+        <h3>Iniciar Sesión</h3>
+        <div className={css.socials}>
+        <h3>Podés iniciar sesión usando estas tres redes:</h3>
+        <div className={css.icons}>
+        <AiFillGoogleCircle className={css.icon}/>
+        <BsFacebook className={css.icon}/>
+        <AiFillTwitterCircle className={css.icon}/>
         </div>
-    </div>);
+        <h3>O</h3>
+        <h3>Iniciar sesión con tu cuenta de GymBro:</h3>
+        </div>
+        
+        <form className={css.form}>
+          <label htmlFor="email">
+            <p>Correo electronico:</p>
+            <input
+              onChange={handleInputChange}
+              required
+              value={input.email}
+              type="email"
+              name="email"
+              id="email"
+              placeholder=" Correo"
+            />
+          </label>
+          <label htmlFor="password">
+            <p>Contraseña:</p>
+            <input
+              onChange={handleInputChange}
+              required
+              value={input.password}
+              type="password"
+              name="password"
+              id="password"
+              placeholder=" Contraseña"
+            />
+          </label>
+          <button onClick={handleForm} className="btn">Iniciar Sesión</button>
+        </form>
+        <div className={css.create}>
+          <h3>No tenés cuenta?</h3>
+          <Link href='./createUser'>
+          <button className="btn">Registrate</button>
+          </Link>
+          </div>
+      </div>
+    </div>
+    </div>
+    </Modal>
+  );
 }
 
 export default Page;

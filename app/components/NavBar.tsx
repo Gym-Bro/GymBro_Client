@@ -3,8 +3,10 @@ import gymBro from "../../public/favicon.ico";
 import css from "./NavBar.module.css";
 import { FaUser, FaDumbbell } from "react-icons/fa";
 import Link from "next/link";
+import React from "react";
 
 function NavBar() {
+ 
   return (
     <nav className={css.container}>
       <div>
