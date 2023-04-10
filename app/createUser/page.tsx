@@ -8,6 +8,7 @@ import css from './createUser.module.css'
 
 function Page() {
   const [tokenID, setTokenID] = React.useState("");
+  const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
     name: "",
     lastname: "",
@@ -15,7 +16,7 @@ function Page() {
     password: "",
     repassword: "",
   });
-
+console.log(file)
   const createUser = async () => {
     fetch("http://localhost:3000/auth/register", {
       method: "POST",
@@ -43,6 +44,15 @@ function Page() {
     target: { name, value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     setInput({ ...input, [name]: value });
+  };
+  const handleFileChange = ({target:{files}}:React.ChangeEvent<HTMLInputElement>) => {
+    const input = files && files[0];
+    console.log(input)
+    if (!input) return;
+    const data = new FormData();
+    data.append('foto', input.name)
+    setFile(data);
+    console.log('formdata',data)
   };
 
   return (
@@ -117,6 +127,15 @@ function Page() {
               name="repassword"
               id="repassword"
               placeholder="  Confirmar contraseña..."
+            />            
+          </label>
+          <label htmlFor="user-image">
+            <p>Foto de perfil:</p>
+            <input type="file" 
+            onChange={handleFileChange}
+            accept="image/png, image/jpeg"
+            id="file" 
+            name="file"
             />
           </label>
           <p>Estas listo para empezar?</p>

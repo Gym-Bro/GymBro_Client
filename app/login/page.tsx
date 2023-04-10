@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { signIn, signOut } from "../firebase/auth/signIn";
+import { signIn} from "../firebase/auth/signIn";
 import Logo from "../../public/favicon.ico";
 import Image from "next/image";
 import css from "./login.module.css"

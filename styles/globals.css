@@ -32,6 +32,7 @@ a {
 }
 .container{
   display: flex;
+  flex-direction: column;
   width: 90vh;  
   justify-content: center;
 }
@@ -63,6 +64,17 @@ a {
 .btn:hover{
   cursor: pointer;
   box-shadow: .75rem .75rem 1.75rem var(--background-color-opasity);
+}
+.swiper-slide img{
+  height: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding:5rem 15rem;
+}
+
+.swiper-container {
+  max-width: 1200px;
+  max-height: 400px;
 }
 
 @media (prefers-color-scheme: dark) {
