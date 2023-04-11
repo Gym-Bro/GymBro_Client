@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background-color: #1e1e1e;
+  border-top: 0.2rem solid #dbdbdb;
+  
+}
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30rem;
+  padding: 5rem;
+}
+.img {
+  height: 15rem;
+  width: 15rem;
+}
+.ul {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  gap: 1.75rem;
+  font-size: 1.5rem; 
+}
+.ul li {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  color: #1e1e1e;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.round {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0.75rem;  
+}
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+}
+.social h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.copy {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.75rem;
+}

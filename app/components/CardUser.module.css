@@ -1,0 +1,40 @@
+.star {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-image: url(Star1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border-radius: 1.5rem;
+  text-align: center;
+}
+.cardContainer p{
+    font-size: .75rem;
+    padding: .75rem;
+}
+.cardContainer h2{
+    font-size: 2.5rem;
+    
+}
+
+.starsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+    width: 5rem;
+  height: 5rem;
+    
+}
