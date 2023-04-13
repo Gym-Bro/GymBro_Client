@@ -75,6 +75,7 @@ a {
 .swiper-container {
   max-width: 1200px;
   max-height: 400px;
+  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import signUp from "../firebase/auth/signup";
 import Logo from "../../public/favicon.ico";
 import Image from "next/image";
@@ -8,24 +8,43 @@ import css from "./createUser.module.css";
 
 function Page() {
   const [tokenID, setTokenID] = React.useState("");
+  const [providerId, setProviderId] = React.useState("");
   const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
     name: "",
     lastname: "",
     email: "",
     password: "",
-    repassword: "",
+    confirm: "",
   });
-  console.log(file);
-  const createUser = async () => {
-    fetch("http://localhost:3000/auth/register", {
-      method: "POST",
-      headers: {
-        tokenID,
-      },
-      body: JSON.stringify(input),
-    });
-  };
+
+  useEffect(() => {
+    const registerUser = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:5001/gymbro-27bb2/us-central1/api/auth/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${tokenID}`,
+            },
+            body: JSON.stringify({ input, providerId }),
+          }
+        );
+        if (response.ok) {
+          alert("su usuario se creó correctamente");
+        } else {
+          alert("su usuario no pudo ser creado");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if (tokenID !== "") {
+      registerUser();
+    }
+  }, [tokenID]);
 
   const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,7 +55,8 @@ function Page() {
     }
     const idToken = await result?.user.getIdToken();
     if (idToken === "") setTokenID(idToken);
-    createUser();
+    const provider = await result?.providerId;
+    if (provider) setProviderId(provider);
     error
       ? alert("su usuario no pudo ser creado")
       : alert("su usuario se creo correctamente");
@@ -124,10 +144,10 @@ function Page() {
                 <input
                   onChange={handleInputChange}
                   required
-                  value={input.repassword}
+                  value={input.confirm}
                   type="password"
-                  name="repassword"
-                  id="repassword"
+                  name="confirm"
+                  id="confirm"
                   placeholder="  Confirmar contraseña..."
                 />
               </label>

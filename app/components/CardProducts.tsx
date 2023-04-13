@@ -1,17 +1,20 @@
 import React from "react";
 import css from "./CardProducts.module.css";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-export default function CardProducts(props: { props: StaticImageData[] }) {
+export default function CardProducts(props:any) {
+  console.log(props)
   return (
     <>
-      {props.props.map((e,i) => (
-          <div key={i} className={css.container}>
-        
-            <div className={css.box}><Image src={e} alt={`${e}`} /></div>
+      
+          <div  className={css.container}>
+      
+            <div className={css.box}>
+              <Image src={props.blurDataURL} alt={`${props}`} />
+              </div>
           
           <div className={css.box2}>
-            <h1>{`${e}`}</h1>
+            <h1>{`${props}`}</h1>
             <h3>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Laudantium error veniam explicabo tempore dolor ducimus quia hic
@@ -23,7 +26,7 @@ export default function CardProducts(props: { props: StaticImageData[] }) {
           </div>
         </div>
     
-      ))}
+      
       </>
   );
 }
