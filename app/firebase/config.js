@@ -1,17 +1,31 @@
-import { initializeApp, getApps } from "firebase/app";
+import { initializeApp } from "firebase/app";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
+// Firebase configuration for emulator
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    databaseURL: "http://localhost:9099",
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyC2PlruFjSk9EZllJC9jvAQBz7oFj5O1-I",
+  authDomain: "gymbro-27bb2.firebaseapp.com",
+  databaseURL: "localhost",
+  projectId: "gymbro-27bb2",
+  storageBucket: "gymbro-27bb2.appspot.com",
+  messagingSenderId: "838322836847",
+  appId: "1:838322836847:web:a0f0e90e202d2f2300c49a",
+  measurementId: "G-JLBDNKZ03P",
 };
 
-// Initialize Firebase
-let firebase_app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
 
-export default firebase_app;
+// Get Firebase services with emulator settings
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Set Firebase emulator URL for auth and firestore
+// auth.useEmulator("http://localhost:9099");
+// db.useEmulator("localhost", 8080);
+
+connectAuthEmulator(auth, "http://localhost:9099");
+connectFirestoreEmulator(db, "http://localhost:8080");
+
+export { auth, db, app };
