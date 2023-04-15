@@ -162,3 +162,57 @@ function Page() {
 }
 
 export default Page;
+
+// import React, { useState } from 'react';
+
+// const FileUploadForm = () => {
+//   const [selectedFile, setSelectedFile] = useState(null);
+
+//   const handleFileChange = (event) => {
+//     setSelectedFile(event.target.files[0]);
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     const formData = new FormData();
+//     formData.append('archivo', selectedFile);
+
+//     const idToken = 'tu_id_token'; // Reemplaza esto con tu propio token de autorización
+
+//     fetch('/ruta/del/servidor', {
+//       method: 'POST',
+//       headers: {
+//         'Authorization': 'Bearer ' + idToken,
+//         // Establecer el Content-Type adecuado
+//         // para el envío de archivos en FormData
+//         // y dejar que el navegador genere los límites
+//         // de multipart automáticamente
+//         'Content-Type': 'multipart/form-data',
+//       },
+//       body: formData,
+//     })
+//       .then(response => {
+//         if (response.ok) {
+//           console.log('Archivo enviado exitosamente.', response);
+//           // Realizar acciones adicionales después de recibir la respuesta del servidor
+//         } else {
+//           console.error('Error al enviar archivo.', response);
+//           // Realizar acciones adicionales en caso de error
+//         }
+//       })
+//       .catch(error => {
+//         console.error('Error al enviar archivo.', error);
+//         // Realizar acciones adicionales en caso de error
+//       });
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit} encType="multipart/form-data">
+//       <input type="file" name="archivo" onChange={handleFileChange} />
+//       {/* Agrega otros campos de formulario según tus necesidades */}
+//       <input type="submit" value="Enviar" />
+//     </form>
+//   );
+// };
+
+// export default FileUploadForm;
