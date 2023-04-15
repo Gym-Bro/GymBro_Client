@@ -7,27 +7,26 @@ import { Modal } from "../components/Modal";
 import css from "./createUser.module.css";
 
 function Page() {
-  const [tokenID, setTokenID] = React.useState("");
   const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
-    name: "",
-    lastname: "",
+    name: "", // debe ser first_name
+    lastname: "", // debe ser last_name
     email: "",
     password: "",
-    repassword: "",
-    providerId: "firebase",
+    repassword: "", // debe ser confirm
   });
   //console.log(file);
-  const createUser = async () => {
+  const postUser = async (idToken: string, providerId: string) => {
+    const user = { ...input, providerId };
     const result = await fetch(
       "http://localhost:5001/gymbro/us-central1/api/auth/register",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Specify the content type
-          Authorization: "Bearer " + tokenID,
+          Authorization: "Bearer " + idToken,
         },
-        body: JSON.stringify(input),
+        body: JSON.stringify(user),
       }
     );
     return result.json();
@@ -40,16 +39,12 @@ function Page() {
     if (error) {
       return console.log(error);
     }
-    console.log(result);
+    const providerId = result?.user.providerId;
     const idToken = await result?.user.getIdToken();
-    //if (idToken === "") setTokenID(idToken);
-    if (idToken !== undefined) {
-      console.log("seteando token");
-      setTokenID(idToken);
+    if (idToken !== undefined && providerId !== undefined) {
+      const res = await postUser(idToken, providerId);
+      console.log(res);
     }
-    console.log(tokenID);
-    const res = await createUser();
-    console.log(res);
     error
       ? alert("su usuario no pudo ser creado")
       : alert("su usuario se creo correctamente");
