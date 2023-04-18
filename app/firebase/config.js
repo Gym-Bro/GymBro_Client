@@ -4,14 +4,7 @@ import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 // Firebase configuration for emulator
 const firebaseConfig = {
-  apiKey: "AIzaSyC2PlruFjSk9EZllJC9jvAQBz7oFj5O1-I",
-  authDomain: "gymbro-27bb2.firebaseapp.com",
-  databaseURL: "localhost",
-  projectId: "gymbro-27bb2",
-  storageBucket: "gymbro-27bb2.appspot.com",
-  messagingSenderId: "838322836847",
-  appId: "1:838322836847:web:a0f0e90e202d2f2300c49a",
-  measurementId: "G-JLBDNKZ03P",
+  // config keys here
 };
 
 // Initialize Firebase app
