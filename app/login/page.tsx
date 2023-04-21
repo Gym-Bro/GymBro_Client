@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { signIn} from "../firebase/auth/signIn";
+import {passwordReset, signIn} from "../firebase/auth/signIn";
 import Logo from "../../public/favicon.ico";
 import Image from "next/image";
 import css from "./login.module.css"
@@ -20,7 +20,7 @@ function Page() {
     event.preventDefault();
 
     const { result, error } = await signIn(input.email, input.password);
-    console.log(input);
+    console.log(result);
 
     if (error) {
       return console.log(error);
@@ -83,6 +83,13 @@ function Page() {
           </label>
           <button onClick={handleForm} className="btn">Iniciar Sesión</button>
         </form>
+        <div>
+          <h3>te olvidaste las contraseña:
+        </h3>
+        <Link href='./forgotPassword'><p>presiona Aquí</p></Link>
+          
+        </div>
+        
         <div className={css.create}>
           <h3>No tenés cuenta?</h3>
           <Link href='./createUser'>
