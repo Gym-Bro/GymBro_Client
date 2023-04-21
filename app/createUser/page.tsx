@@ -7,12 +7,10 @@ import { Modal } from "../components/Modal";
 import css from "./createUser.module.css";
 
 function Page() {
-  const [tokenID, setTokenID] = React.useState("");
-  const [providerId, setProviderId] = React.useState("");
   const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
-    name: "",
-    lastname: "",
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
     confirm: "",
@@ -49,7 +47,6 @@ function Page() {
   const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { result, error } = await signUp(input.email, input.password);
-
     if (error) {
       return console.log(error);
     }
@@ -61,7 +58,6 @@ function Page() {
       ? alert("su usuario no pudo ser creado")
       : alert("su usuario se creo correctamente");
   };
-
   const handleInputChange = ({
     target: { name, value },
   }: React.ChangeEvent<HTMLInputElement>) => {
