@@ -10,7 +10,7 @@ export default function CardProducts(props:any) {
           <div  className={css.container}>
       
             <div className={css.box}>
-              <Image src={props.blurDataURL} alt={`${props}`} />
+              <Image src={props.props.blurDataURL} width={"60"} height={"60"} alt={`${props.props.src}`} />
               </div>
           
           <div className={css.box2}>

@@ -8,10 +8,12 @@ import css from './landingPage.module.css'
 import Swipers from "./components/Swipers";
 import Swip from "./components/swip";
 import Activities from "./components/Activities";
+import { useAuthContext } from "./firebase/auth/AuthContext";
 
-function page() {
+function Page() {
   const fotos = [banner1, banner2, banner3, banner4];
-
+  const user = useAuthContext();
+  console.log(user)
   return (
     <div className={css.container}>
       <Swipers props={fotos} />
@@ -21,4 +23,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

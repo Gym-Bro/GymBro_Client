@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  width: 55vh;
+  margin: 2rem;
+  padding: 5rem;
+  border-radius: 1rem;
+  text-align: center;
+  gap: 1rem;
+}
+.form input {
+    display: flex;
+  border-radius: 0.25rem;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  width: 50vh;
+  height: 2rem;
+}
+.form textarea {
+    display: flex;
+  border-radius: 0.45rem;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  height:8rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  font-weight: bolder;
+  text-align: start;  
+  
+}

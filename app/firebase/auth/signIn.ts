@@ -1,7 +1,6 @@
 import { auth } from "../config";
 import {
   signInWithEmailAndPassword,
-  getAuth,
   sendPasswordResetEmail,
   confirmPasswordReset,
 } from "firebase/auth";

@@ -58,6 +58,7 @@ a {
   color: var(--background-color);
   padding: .5rem 1.5rem;
   border-radius: .5rem;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
 }

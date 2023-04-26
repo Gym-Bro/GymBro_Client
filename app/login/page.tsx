@@ -84,8 +84,7 @@ function Page() {
           <button onClick={handleForm} className="btn">Iniciar Sesión</button>
         </form>
         <div>
-          <h3>te olvidaste las contraseña:
-        </h3>
+          <h3>te olvidaste las contraseña:</h3>
         <Link href='./forgotPassword'><p>presiona Aquí</p></Link>
           
         </div>
