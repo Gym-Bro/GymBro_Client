@@ -1,0 +1,23 @@
+.container{
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 1rem;
+    z-index: 999;
+    border-radius: .35rem;
+    text-align: center;
+}
+.pico{
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: 2rem;
+    height: 2rem;
+    transform: rotate(45deg);
+    top: -1rem;
+    right: 2rem;
+}

@@ -4,9 +4,25 @@ import css from "./NavBar.module.css";
 import { FaUser, FaDumbbell } from "react-icons/fa";
 import Link from "next/link";
 import React from "react";
+import { useAuthContext } from "../firebase/auth/AuthContext";
+import UserMenu from "./UserMenu";
+import { signOut } from "../firebase/auth/signIn";
 
 function NavBar() {
- 
+  const { user } = useAuthContext();
+  const [toogle, setToogle] = React.useState(false);
+  const [verify, setVerify] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!user) setVerify(false);
+    else setVerify(true);
+  }, [user]);
+  const handleUser = () => {
+    if (user && !user.emailVerified){
+      alert("Revisa tu correo y verifica tu cuenta!! Te esperamos!!");
+      signOut()}
+    else setToogle(!toogle);
+  };
   return (
     <nav className={css.container}>
       <div>
@@ -30,9 +46,18 @@ function NavBar() {
         <Link href="/mis_rutinas">
           <FaDumbbell className={css.user} />
         </Link>
-        <Link href="/login">
-          <FaUser className={css.user} />
-        </Link>
+
+        <FaUser className={css.user} onClick={handleUser} />
+        {toogle ? (
+          <div className={css.menu}>
+            <UserMenu
+              user={verify}
+              name={user && user?.displayName}
+              toogle={toogle}
+              setToogle={setToogle}
+            />
+          </div>
+        ) : null}
       </div>
     </nav>
   );

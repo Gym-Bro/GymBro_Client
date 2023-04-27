@@ -5,8 +5,10 @@ import Logo from "../../public/favicon.ico";
 import Image from "next/image";
 import { Modal } from "../components/Modal";
 import css from "./createUser.module.css";
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const route = useRouter();
   const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
     first_name: "",
@@ -18,20 +20,19 @@ function Page() {
 
   const registerUser = async (tokenID: string, providerId: string) => {
     console.log(providerId);
-      const user = { ...input, providerId };
-      const response = await fetch(
-        "http://127.0.0.1:5001/gymbro-27bb2/us-central1/api/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + tokenID ,
-          },
-          body: JSON.stringify(user),
-        }
-      );
-      return response.json();
-         
+    const user = { ...input, providerId };
+    const response = await fetch(
+      "http://127.0.0.1:5001/gymbro-27bb2/us-central1/api/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + tokenID,
+        },
+        body: JSON.stringify(user),
+      }
+    );
+    return response.json();
   };
 
   const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -41,14 +42,16 @@ function Page() {
       return console.log(error);
     }
     const idToken = await result?.user.getIdToken();
-    const provider:any = await result?.user.providerId;
-    if (idToken !== undefined && provider !== undefined ) {
+    const provider: any = await result?.user.providerId;
+    if (idToken !== undefined && provider !== undefined) {
       const res = await registerUser(idToken, provider);
-      console.log(res)
+      console.log(res);
     }
     error
       ? alert("su usuario no pudo ser creado")
       : alert("su usuario se creo correctamente");
+
+    route.push("/");
   };
   const handleInputChange = ({
     target: { name, value },

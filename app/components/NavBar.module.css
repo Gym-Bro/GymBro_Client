@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.2rem solid #dbdbdb;
+  
 }
 .img {
   width: 6rem;
@@ -31,4 +32,10 @@
 }
 .box {
   display: flex;
+}
+.menu{
+  z-index: 9999;
+  position: absolute;
+  bottom: 36.25rem;
+  right: 1rem;
 }

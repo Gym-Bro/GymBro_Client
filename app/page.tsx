@@ -12,7 +12,7 @@ import { useAuthContext } from "./firebase/auth/AuthContext";
 
 function Page() {
   const fotos = [banner1, banner2, banner3, banner4];
-  const user = useAuthContext();
+  const {user} = useAuthContext();
   console.log(user)
   return (
     <div className={css.container}>

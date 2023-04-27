@@ -9,8 +9,10 @@ import Link from "next/link";
 import { Modal } from "../components/Modal";
 import {AiFillGoogleCircle, AiFillTwitterCircle} from 'react-icons/ai'
 import {BsFacebook} from 'react-icons/bs'
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const router = useRouter()
   const [input, setInput] = React.useState({
     email: "",
     password: "",
@@ -83,13 +85,13 @@ function Page() {
           </label>
           <button onClick={handleForm} className="btn">Iniciar Sesión</button>
         </form>
-        <div>
-          <h3>te olvidaste las contraseña:</h3>
-        <Link href='./forgotPassword'><p>presiona Aquí</p></Link>
-          
-        </div>
         
         <div className={css.create}>
+        <div>
+          <h3>te olvidaste las contraseña:</h3>
+        <button className="btn" onClick={()=> router.push('/forgotPassword')}>presiona Aquí</button>
+          
+        </div>
           <h3>No tenés cuenta?</h3>
           <Link href='./createUser'>
           <button className="btn">Registrate</button>

@@ -1,35 +1,32 @@
+'use client'
 import React from "react";
 import Image from "next/image";
 import css from "./userDasboard.module.css";
+import { useUserDbContext } from "../components/Context/UserDbContext";
 
 const Page = () => {
-  const user = {
-    name: "manolito",
-    email: "manolito@gmail.com",
-    last_name: "gascon",
-    age: 25,
-    nacimiento: "12/10/84",
-  };
-
+  const {userDb} = useUserDbContext()
+console.log(userDb)
   return (
     <div className={css.container}>
-      <h2>Bienvenido, {user.name}!</h2>
+      <h2>Bienvenido, {userDb?.first_name}!</h2>
       <div className={css.dashboard}>
         <h2>Estos son tus datos</h2>
         <div className={css.data}>
-          <h3>Nombre: {user.name}</h3>
-          <h3> Apellido: {user.last_name}</h3>
+          <h3>Nombre: {userDb?.first_name}</h3>
+          <h3> Apellido: {userDb?.last_name}</h3>
         </div>
         <div className={css.data}>
-          <h3>Correo: {user.email}</h3>
-          <h3> Fecha de nac.: {user.nacimiento}</h3>
+          <h3>Correo: {userDb?.email}</h3>
+          <h3> Fecha de nac.: {}</h3>
         </div>
       
       <div>
-        <h3>Edad:{user.age}</h3>
+        <h3>Edad:{}</h3>
       </div>
       <div className={css.img}>
-        <Image src="" alt="" />
+        <Image src={userDb?.photo_url
+||''} alt={userDb?.last_name} />
       </div>
         <h2>Foto de perfil</h2>
       

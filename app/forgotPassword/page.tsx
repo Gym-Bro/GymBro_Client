@@ -36,8 +36,7 @@ const Page = () => {
             onChange={handleInputChange}
             required
           />
-          <button type="submit" className="btn">
-            {" "}
+          <button type="submit" className="btn">            
             Restablezca su contraseña
           </button>
         </form>
