@@ -43,11 +43,13 @@ function NavBar() {
             <Link href="/sedes">Sedes</Link>
           </li>
         </ul>
-        <Link href="/mis_rutinas">
+        <Link href="/mis_rutinas" className={css.userCircle}>
           <FaDumbbell className={css.user} />
         </Link>
-
-        <FaUser className={css.user} onClick={handleUser} />
+<div className={css.userCircle}>
+  <FaUser className={css.user} onClick={handleUser} />
+  </div>
+        
         {toogle ? (
           <div className={css.menu}>
             <UserMenu

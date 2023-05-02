@@ -8,7 +8,7 @@ import css from "./createUser.module.css";
 import { useRouter } from "next/navigation";
 
 function Page() {
-  const route = useRouter();
+  const router = useRouter();
   const [file, setFile] = React.useState({});
   const [input, setInput] = React.useState({
     first_name: "",
@@ -51,7 +51,7 @@ function Page() {
       ? alert("su usuario no pudo ser creado")
       : alert("su usuario se creo correctamente");
 
-    route.push("/");
+    router.push("/");
   };
   const handleInputChange = ({
     target: { name, value },
@@ -69,13 +69,17 @@ function Page() {
     setFile(data);
     console.log("formdata", data);
   };
+  const handlerClose = (e:React.MouseEvent<HTMLDivElement>)=>{   
+    router.push('/')
+
+  }
 
   return (
     <Modal>
       <div className="container">
-        <div className={css.primaryContainer}>
+        <div onClick={handlerClose} className={css.primaryContainer}>
           <Image alt="Gym-Bro" src={Logo} className={css.img} />
-          <div className={css.container}>
+          <div onClick={(e)=> e.stopPropagation()} className={css.container}>
             <h3>Registro</h3>
             <form onSubmit={handleForm} className={css.form}>
               <label htmlFor="name">

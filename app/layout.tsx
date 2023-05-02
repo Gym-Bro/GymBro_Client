@@ -7,7 +7,11 @@ import { UserDbProvider } from "./components/Providers/UserDbProvider";
 
 export default function RootLayout({ children }: any) {
   return (
+    
     <html lang="en">
+      <head>
+        <title> GYM-BRO</title>
+      </head>
       <body>
         <AuthContextProvider>
           <NavBar />
@@ -16,5 +20,6 @@ export default function RootLayout({ children }: any) {
         <Footer />
       </body>
     </html>
+    
   );
 }

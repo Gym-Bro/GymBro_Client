@@ -28,14 +28,31 @@
 .user {
   width: 2rem;
   height: 2rem;
-  margin: 3rem;
+  
+}
+.userCircle{
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--complementary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-color);
 }
 .box {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding:0 2rem;
 }
 .menu{
   z-index: 9999;
   position: absolute;
   bottom: 36.25rem;
   right: 1rem;
+}
+.user:hover{
+  cursor: pointer;
 }

@@ -9,8 +9,9 @@
     color: var(--background-color);
     padding: 1rem;
     z-index: 999;
-    border-radius: .35rem;
+    border-radius: 1rem;
     text-align: center;
+    box-shadow: .15rem .15rem 1rem var(--background-color);
 }
 .pico{
     position: absolute;

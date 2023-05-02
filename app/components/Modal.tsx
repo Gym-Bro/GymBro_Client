@@ -9,10 +9,10 @@ interface props{
 export const Modal = ({children}:props) => { 
     const route = useRouter()
   return (
-    <article className='modal open'>
-        <div onClick={(e)=> e.stopPropagation} className={css.container}>
+    <article className='modal'>
+        
         {children}
-        </div>
+       
         </article>
   )
 }
