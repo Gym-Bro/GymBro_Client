@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import {passwordReset, signIn} from "../firebase/auth/signIn";
+import {signIn} from "../firebase/auth/signIn";
 import Logo from "../../public/favicon.ico";
 import Image from "next/image";
 import css from "./login.module.css"
@@ -9,8 +9,10 @@ import Link from "next/link";
 import { Modal } from "../components/Modal";
 import {AiFillGoogleCircle, AiFillTwitterCircle} from 'react-icons/ai'
 import {BsFacebook} from 'react-icons/bs'
+import { useRouter } from "next/navigation";
 
 function Page() {
+  const router = useRouter()
   const [input, setInput] = React.useState({
     email: "",
     password: "",
@@ -30,6 +32,7 @@ function Page() {
       email: "",
       password: "",
     });
+    router.push('/')
   };
 
   const handleInputChange = ({
@@ -38,12 +41,17 @@ function Page() {
     setInput({ ...input, [name]: value });
   };
 
+  const handlerClose = (e:React.MouseEvent<HTMLDivElement>)=>{   
+    router.push('/')
+
+  }
+
+
   return (
-    <Modal>
-    <div className="container">
-        <div className={css.primaryContainer}>
+    <Modal>    
+        <div onClick={handlerClose} className={css.primaryContainer}>
         <Image alt="Gym-Bro" src={Logo} className={css.img}/>
-      <div className={css.container}>
+      <div onClick={(e)=> e.stopPropagation()}  className={css.container}>
         <h3>Iniciar Sesión</h3>
         <div className={css.socials}>
         <h3>Podés iniciar sesión usando estas tres redes:</h3>
@@ -83,14 +91,13 @@ function Page() {
           </label>
           <button onClick={handleForm} className="btn">Iniciar Sesión</button>
         </form>
-        <div>
-          <h3>te olvidaste las contraseña:
-        </h3>
-        <Link href='./forgotPassword'><p>presiona Aquí</p></Link>
-          
-        </div>
         
         <div className={css.create}>
+        
+          <h3>Olvidaste tu contraseña?</h3>
+        <button className="btn" onClick={()=> router.push('/forgotPassword')}>Recuperar Contraseña</button>
+          
+        
           <h3>No tenés cuenta?</h3>
           <Link href='./createUser'>
           <button className="btn">Registrate</button>
@@ -98,7 +105,7 @@ function Page() {
           </div>
       </div>
     </div>
-    </div>
+    
     </Modal>
   );
 }

@@ -35,3 +35,12 @@
     align-items: center;
     gap: 3rem;
 }
+
+.consult{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}

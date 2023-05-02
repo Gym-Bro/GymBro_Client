@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 5rem;
-  gap: 2.5rem;
+  gap: 1rem;
 }
 
 .container {
@@ -16,11 +14,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  height: 50rem;
+  padding: 5rem;
+  height: 43rem;
   width: 25rem;
   font-size: 0.75rem;
-  gap: 2rem;
+  gap: 1rem;
 }
 .img {
   height: 15rem;

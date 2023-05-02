@@ -27,7 +27,7 @@ function Swip() {
       >
         {foto?.map((e,i)=>
         (<SwiperSlide key={i}>
-        <CardProducts  props={e.src}/>
+        <CardProducts  props={e}/>
         </SwiperSlide>))}
        
         
