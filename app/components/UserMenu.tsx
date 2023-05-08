@@ -14,7 +14,7 @@ const UserMenu = ({ user, name, toogle, setToogle }: props) => {
   const route = useRouter();
   
   return (
-    <div onClick={()=>setToogle(!toogle)} >
+    <div onClick={()=>setToogle(!toogle)} className={css.fondo} >
       {user && user ? (
           <div onClick={()=>setToogle(!toogle)} className={css.container}>
             <div className={css.pico}></div>
@@ -31,7 +31,7 @@ const UserMenu = ({ user, name, toogle, setToogle }: props) => {
           </button>
         </div>
       ) : (
-        <div onClick={(e)=> e.stopPropagation()} className={css.container}>
+        <div onClick={()=>setToogle(!toogle)} className={css.container}>
           <div className={css.pico}></div>
           <h3>Estas como invitado!</h3>
           <h3>Qué deseas hacer?</h3>

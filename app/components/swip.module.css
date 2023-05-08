@@ -1,0 +1,14 @@
+.swiper_slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   padding: 2rem;
+}
+
+.Swiper_Container{
+    height: 50rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 15rem;
+    border-radius: 2rem;
+  }

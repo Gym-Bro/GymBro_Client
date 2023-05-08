@@ -6,17 +6,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/swiper-bundle.css";
-import banner5 from "../../public/almendras.png"
-import banner6 from '../../public/protein.png'
-import banner7 from '../../public/creatina.png'
 import CardProducts from './CardProducts'
+import { StaticImageData } from "next/image";
+import css from './swip.module.css'
 
-
-function Swip() {
-  const foto = [banner5,banner6, banner7] 
+function Swip(props: { props: StaticImageData[] }) { 
   SwiperCore.use([Navigation, Pagination, Autoplay]);
+  console.log(props.props)
   return (
-    <>
+    <div className={css.Swiper_Container}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -25,14 +23,14 @@ function Swip() {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {foto?.map((e,i)=>
-        (<SwiperSlide key={i}>
+        {props.props?.map((e,i)=>
+        (<SwiperSlide key={i} className={css.swiper_slide}>
         <CardProducts  props={e}/>
         </SwiperSlide>))}
        
         
       </Swiper>
-    </>
+    </div>
   );
 }
 

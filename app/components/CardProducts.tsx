@@ -7,7 +7,7 @@ export default function CardProducts({ props }: any) {
     <>
       <div className={css.container}>
         <div className={css.box}>
-          <Image src={props} alt={`${props}`} />
+          <Image className={css.box_img} src={props} alt={`${props}`} />
         </div>
 
         <div className={css.box2}>

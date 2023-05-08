@@ -7,9 +7,14 @@ interface props{
   children: JSX.Element | JSX.Element[]
 }
 export const Modal = ({children}:props) => { 
-    const route = useRouter()
+    const router = useRouter()
+
+    const handlerClose = (e:React.MouseEvent<HTMLDivElement>)=>{   
+      router.push('/')
+  
+    }
   return (
-    <article className='modal'>
+    <article onClick={handlerClose} className='modal'>
         
         {children}
        

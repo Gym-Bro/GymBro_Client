@@ -67,18 +67,7 @@ a {
 .alert{
 background-color: var(--background--alert);
 }
-.swiper-slide img {
-  height: 600px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem 15rem;
-}
 
-.swiper-container {
-  max-width: 1200px;
-  max-height: 400px;
-  margin: 0 auto;
-}
 
 @media (prefers-color-scheme: dark) {
   html {

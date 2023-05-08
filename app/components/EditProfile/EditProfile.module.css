@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.img {
+  height: 15rem;
+  width: 15rem;
+}
+.box{
+    background-color: var(--secondary-color);
+  color: var(--complementary-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 3rem;
+  gap: 1rem;
+}
+.form {  
+  color: var(--complementary-color);  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  gap: 1rem; 
+}
+
+.form input {
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  height: 2rem;
+  width: 15rem;
+  background-color: var(--background-color);
+  color: var(--complementary-color);
+}
+.input{
+    display: flex;
+    flex-direction: column;
+
+}
