@@ -8,9 +8,8 @@ import { useAuthContext } from "../firebase/auth/AuthContext";
 import UserMenu from "./UserMenu";
 import { signOut } from "../firebase/auth/signIn";
 
-function NavBar() {
-  const { user } = useAuthContext();
-  const [toogle, setToogle] = React.useState(false);
+function NavBar({toogle, setToogle}:any) {
+  const { user } = useAuthContext(); 
   const [verify, setVerify] = React.useState(false);
 
   React.useEffect(() => {
@@ -46,8 +45,8 @@ function NavBar() {
         <Link href="/mis_rutinas" className={css.userCircle}>
           <FaDumbbell className={css.user} />
         </Link>
-<div className={css.userCircle}>
-  <FaUser className={css.user} onClick={handleUser} />
+<div className={css.userCircle} onClick={handleUser} >
+  <FaUser className={css.user} />
   </div>
         
         {toogle ? (

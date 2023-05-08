@@ -7,14 +7,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/swiper-bundle.css";
 import Image, { StaticImageData } from "next/image";
+import css from './Swipers.module.css'
 
 function Swipers( props: { props: StaticImageData[] }) {
   SwiperCore.use([Navigation, Pagination, Autoplay]);
   return (
-    <>
+    <div className={css.Swiper_Container}>
       <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={50}
         loop={true}        
         navigation={true}
         modules={[Pagination, Navigation]}
@@ -23,11 +24,11 @@ function Swipers( props: { props: StaticImageData[] }) {
        { 
        props.props?.map((e,i) => (
         
-        <SwiperSlide key={i}><Image src={e} alt={`${e}`}/></SwiperSlide>))
+        <SwiperSlide className={css.swiper_slide} key={i}><Image src={e} alt={`${e}`}/></SwiperSlide>))
        }
         
       </Swiper>
-    </>
+    </div>
   );
 }
 
