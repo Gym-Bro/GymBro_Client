@@ -10,6 +10,11 @@ interface props{
 export const UserDbProvider= ({ children }:props) => {
     const [userDb, setUserDB] = useState({});
     const {user} = useAuthContext()
+
+    useEffect(() => {
+     user && getUserDb()
+    }, [user]);    
+   
     
     const getUserDb = async()=>{
         const tokenID = await user?.getIdToken();
@@ -26,9 +31,7 @@ export const UserDbProvider= ({ children }:props) => {
       ).then(res => res.json());
       setUserDB(response);    
   }
-    useEffect(() => {
-      user && getUserDb()
-    }, [user]);
+    
   
     return (   
   

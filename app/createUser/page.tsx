@@ -19,7 +19,7 @@ function Page() {
   });
 
   const registerUser = async (tokenID: string, providerId: string) => {
-    console.log(providerId);
+   
     const user = { ...input, providerId };
     const response = await fetch(
       "http://127.0.0.1:5001/gymbro-27bb2/us-central1/api/auth/register",

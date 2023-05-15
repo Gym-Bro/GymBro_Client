@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import {signIn} from "../firebase/auth/signIn";
 import Logo from "../../public/favicon.ico";
