@@ -8,7 +8,7 @@ import EditProfile from "../components/EditProfile/EditProfile";
 
 const Page = () => {
   const { userDb } = useUserDbContext();
-
+console.log(userDb)
   const [open, setOpen] = React.useState(false);
   const edit = () => {
     setOpen(true);
@@ -26,13 +26,17 @@ const Page = () => {
         </div>
         <div className={css.data}>
           <h3>Correo: {userDb?.email}</h3>
-          <h3> Fecha de nac.: {}</h3>
+          <h3> Fecha de nac.: {userDb?.birth_date}</h3>
         </div>
         <div>
           <h3>Edad:{}</h3>
         </div>
         <div className={css.img}>
-          <Image src={userDb?.photo_url || ""} alt={userDb?.last_name || ""} />
+          {userDb?.photoURL
+ ? <img src={userDb.photoURL
+ } alt={userDb?.last_name } 
+ height={100}
+ width={100}/> : ""}
         </div>
         <h2>Foto de perfil</h2>
         <div className={css.data}>
