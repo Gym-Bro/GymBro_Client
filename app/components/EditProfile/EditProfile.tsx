@@ -6,9 +6,9 @@ import { useAuthContext } from "../../firebase/auth/AuthContext";
 import css from "./EditProfile.module.css";
 import { useRouter } from "next/navigation";
 
-const EditProfile = ({setOpen}:any) => {  
-    const router = useRouter()
-    const { user } = useAuthContext(); 
+const EditProfile = ({ setOpen }: any) => {
+  const router = useRouter();
+  const { user } = useAuthContext();
   const [input, setInput] = useState({
     first_name: "",
     last_name: "",
@@ -16,43 +16,44 @@ const EditProfile = ({setOpen}:any) => {
     birth_date: "",
   });
   console.log(input);
-const editUserProfile = async(obj:object)=>{
-    const userEmail= user?.email
-    const tokenID = await user?.getIdToken()
-    const res = await fetch(`http://localhost:5001/gymbro-27bb2/us-central1/api/user/${userEmail}`,
-    {
-        method: "PATCH",  
+  const editUserProfile = async (obj: object) => {
+    const userEmail = user?.email;
+    const tokenID = await user?.getIdToken();
+    const res = await fetch(
+      `http://localhost:5001/gymbro-27bb2/us-central1/api/user/${userEmail}`,
+      {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + tokenID,
-        },     
+        },
         body: JSON.stringify(obj),
       }
-    )
-}
+    );
+  };
   const HandlerChange = ({
     target: { value, name },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setInput({ ...input, [name]:  value  });
+    setInput({ ...input, [name]: value });
   };
 
   const HandlerSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    editUserProfile(input)
+    editUserProfile(input);
     setInput({
-        first_name: "",
-        last_name: "",
-        birth_date: "",
-        photoURL: "",
-      });
-      setOpen(false)
-      router.push('/userDashboard')
+      first_name: "",
+      last_name: "",
+      birth_date: "",
+      photoURL: "",
+    });
+    setOpen(false);
+    router.refresh();
   };
 
   return (
     <div className={css.container}>
       <Image alt="Gym-Bro" src={Logo} className={css.img} />
-      <div className={css.box} onClick={(e)=>e.stopPropagation()} >
+      <div className={css.box} onClick={(e) => e.stopPropagation()}>
         <form onSubmit={HandlerSubmit} className={css.form}>
           <h3>Editar Perfil</h3>
 
@@ -106,7 +107,9 @@ const editUserProfile = async(obj:object)=>{
           </button>
         </form>
         <h3>Cambiaste de opinión?</h3>
-        <button className="btn" onClick={()=> setOpen(false)} >Regresa a tu Perfil</button>
+        <button className="btn" onClick={() => setOpen(false)}>
+          Regresa a tu Perfil
+        </button>
       </div>
     </div>
   );
