@@ -128,6 +128,7 @@ function Page() {
                   minLength={8}
                   maxLength={24}
                   value={input.password}
+                  pattern="^(?=.*[A-Z])(?=.*[\W_])(?=.*\d).{8,16}$"
                   type="password"
                   name="password"
                   id="password"

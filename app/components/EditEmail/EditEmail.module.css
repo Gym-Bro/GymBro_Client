@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.container img{
+    height: 15rem;
+    width: 15rem;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--complementary-color);
+    padding: 3rem;
+    border-radius: .5rem;
+    gap: 1rem;
+}
+.box form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.box_input{
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+}
+.box_input input{
+    background-color: var(--background-color);
+    width: 30vh;
+    height: 2.5rem;
+    border-radius: .75rem;
+    padding: .5rem;
+    color: var(--complementary-color);
+    font-weight: bolder;
+
+}
